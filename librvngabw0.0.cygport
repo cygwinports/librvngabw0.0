@@ -1,0 +1,23 @@
+inherit python
+
+NAME="librvngabw0.0"
+VERSION=0.0.1
+RELEASE=1
+CATEGORY="Libs"
+SUMMARY="AbiWord document generator library"
+DESCRIPTION="librvngabw is an AbiWord document generator for librevenge. It
+supports librevenge's text document interface and has a small interface to
+convert embedded spreadsheet in a table."
+HOMEPAGE="https://sourceforge.net/projects/librvngabw/"
+SRC_URI="mirror://sourceforge/librvngabw/librvngabw-${VERSION}.tar.xz"
+SRC_DIR="librvngabw-${VERSION}"
+PATCH_URI="0.0.1-doxygen-vpath.patch"
+
+PKG_NAMES="${NAME}_0 ${NAME}-devel ${NAME}-doc"
+librvngabw0_0_0_CONTENTS="--exclude=html usr/bin/*-0.0-0.dll usr/share/doc/"
+librvngabw0_0_devel_CONTENTS="usr/include/ usr/lib/"
+librvngabw0_0_doc_CONTENTS="usr/share/doc/${NAME}/html/"
+
+CYGCONF_ARGS="--disable-werror"
+
+KEEP_LA_FILES="none"
